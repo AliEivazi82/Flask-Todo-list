@@ -7,13 +7,17 @@ todos = db['todos']
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET','POST'])
-def test():
-    if request.method == "POST":
-        task_title = request.form.get("task_title")
-        todos.insert_one({"task":task_title})
+@app.route("/", methods=["GET"])
+def main_page():
     all_tasks = todos.find()
     return render_template("index.html", tasks=all_tasks)
+
+
+@app.route('/', methods=['POST'])
+def add_tasks():
+    task_title = request.form.get("task_title")
+    todos.insert_one({"task":task_title})
+    return redirect(url_for("main_page"))
 
 if __name__ == "__main__":
     app.run(debug=True)
