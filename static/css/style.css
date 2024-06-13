@@ -68,15 +68,21 @@ body {
     margin: 20px auto;
 }
 
-.tasks_list li {
-    list-style: none;
+.d-flex {
     margin: 15px 0;
     padding: 15px;
     background-color: #f5f5f5;
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.tasks_list li:hover {
+.d-flex:hover {
     background-color: #fcfcfc;
     box-shadow: 0 3px 5px #ccc;
+}
+
+.btn_done {
+    font-size: small;
 }
