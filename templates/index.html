@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+</head>
+<body>
+    
+    <h1 class="header_title">Todo list app with flask and mongoDB</h1>
+
+    <form method="POST" class="add_container">
+        <input type="text" id="task_title" name="task_title" placeholder="Your Task">
+        <input type="submit" value="ADD" class="btn">
+    </form>
+
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task["task"] }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
